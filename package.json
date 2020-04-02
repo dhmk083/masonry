@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "parcel index.html",
-    "build": "rm -rf .cache dist && parcel build index.html --public-url masonry",
+    "build": "rm -rf .cache dist && parcel build index.html --public-url .",
     "deploy": "yarn build && ./gh-publish dist"
   },
   "devDependencies": {
