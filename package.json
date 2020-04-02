@@ -1,8 +1,8 @@
 {
   "scripts": {
     "start": "parcel index.html",
-    "build": "rm -rf .cache dist && parcel build index.html",
-    "deploy": "./gh-publish dist"
+    "build": "rm -rf .cache dist && parcel build index.html --public-url masonry",
+    "deploy": "yarn build && ./gh-publish dist"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
