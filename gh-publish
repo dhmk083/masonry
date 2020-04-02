@@ -1,0 +1,27 @@
+#!/bin/sh
+
+dir=${1?Please, choose a directory to publish}
+
+[ -d "$dir/.git" ] && {
+  echo There is already exising .git, aborting.;
+  exit 1;
+}
+
+[ -z "$(git status --porcelain)" ] && {
+  echo Please, commit your changes first.;
+  exit 1;
+}
+
+url="$(git remote get-url origin)"
+
+[ -z "$url" ] && {
+  echo Missing remote "origin";
+  exit 1;
+}
+
+cd "$dir"
+git init
+git add .
+git commit -m '<Publishing to GH-pages...>'
+git push --force "$url" master:gh-pages
+rm -rf .git
