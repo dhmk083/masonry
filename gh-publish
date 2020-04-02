@@ -7,7 +7,7 @@ dir=${1?Please, choose a directory to publish}
   exit 1;
 }
 
-[ -z "$(git status --porcelain)" ] && {
+[ "$(git status --porcelain)" ] && {
   echo Please, commit your changes first.;
   exit 1;
 }
